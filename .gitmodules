@@ -1,3 +1,0 @@
-[submodule "crawler"]
-    path = crawler
-    url = https://github.com/example/crawler.git
