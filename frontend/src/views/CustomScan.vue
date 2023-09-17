@@ -19,7 +19,7 @@
               :rules="[validateDirectory]"
             ></v-text-field>
             <div class="d-flex flex-column align-center">
-              <ScanButton />
+              <ScanButton :directory="dir" />
             </div>
           </v-form>
         </div>

@@ -16,13 +16,14 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn icon>
-      <v-icon>mdi-dots-vertical</v-icon>
-    </v-btn>
-
     <template v-slot:extension>
       <v-tabs v-model="tab" align-tabs="title">
-        <v-tab v-for="item in items" :key="item.name" :value="item.name" :to="item.path">
+        <v-tab
+          v-for="item in items"
+          :key="item.name"
+          :value="item.name"
+          :to="item.path"
+        >
           {{ item.name }}
         </v-tab>
       </v-tabs>
@@ -41,7 +42,11 @@ export default {
   data() {
     return {
       tab: null,
-      items: [{ name: "Scan", path: "/" }, { name: "Custom Scan", path: "/custom-scan" }, {name: "Schedule", path: "/schedule"}],
+      items: [
+        { name: "Simple Scan", path: "/" },
+        { name: "Custom Scan", path: "/custom-scan" },
+        { name: "Schedule", path: "/schedule" },
+      ],
     };
   },
 };
