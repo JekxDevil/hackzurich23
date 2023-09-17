@@ -1,5 +1,5 @@
 <template>
-  <v-btn size="large" rounded>Start Scan</v-btn>
+  <v-btn size="large" rounded type="submit">Start Scan</v-btn>
 </template>
 
 <script>

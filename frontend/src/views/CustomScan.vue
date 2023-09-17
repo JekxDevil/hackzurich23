@@ -12,15 +12,19 @@
         <p class="">Please specify the Directory you would like to scan</p>
         <div class="d-flex w-100 justify-center my-6">
           <v-col cols="12" sm="6" md="4">
-            <v-text-field
-              label="Directory"
-              variant="outlined"
-            ></v-text-field>
+            <v-form v-model="validForm" @submit.prevent="submit">
+              <v-text-field
+                v-model="dir"
+                label="Directory"
+                variant="outlined"
+                :rules="[validateDirectory]"
+              ></v-text-field>
+              <div class="d-flex flex-column align-center">
+                <ScanButton />
+              </div>
+            </v-form>
           </v-col>
         </div>
-      </div>
-      <div class="d-flex flex-column align-center">
-        <ScanButton />
       </div>
     </div>
   </div>
@@ -31,7 +35,23 @@ import ScanButton from "@/components/ScanButton.vue";
 
 export default {
   name: "CustomScan",
-  components: { ScanButton }
+  components: { ScanButton },
+  data() {
+    return {
+      dir: null,
+      validForm: true,
+    };
+  },
+  methods: {
+    validateDirectory(value) {
+      console.log(value);
+      return true;
+    },
+    submit() {
+      if (!this.validForm) return;
+      alert("Submitted");
+    },
+  },
 };
 </script>
 
