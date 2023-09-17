@@ -15,8 +15,9 @@ export default {
     },
   },
   methods: {
-    startScan() {
-      console.log(this.directory);
+    async startScan() {
+
+      await window.scan.start(this.directory);
     },
   },
 };
