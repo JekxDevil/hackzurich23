@@ -181,6 +181,8 @@ class RuleBase(object):
         '''
         cls.list_rules()
 
+        print(text)
+        # naive rule detection (no ML) ex. credit cards, rsa keys, etc
         findings = {}
         for k, rule in cls._rules.items():
             inst = rule.create_instance()
@@ -189,13 +191,24 @@ class RuleBase(object):
                 findings.update({inst.id: dict(name=str(inst), findings=ret)})
             del inst
 
-        if len(findings) == 0:
-            return None
-
-        # SENSITIVE DATA FOUND
         # invoke ML to determine if it is a false positive or not
         # state the confidence level (no, human review required, yes)
-        print("SENSITIVE DATA FOUND")
+        # ...
+        confidency = 0.0
+        MIN_CONFIDENCY = 0.0
+        could_be_false_positive = False
+
+        if confidency < MIN_CONFIDENCY:
+            print('FALSE')
+        else:
+            if could_be_false_positive:
+                print('HUMAN REVIEW REQUIRED')
+            else:
+                print('TRUE')
+
+
+        if len(findings) == 0:
+            return None
 
         return dict(credentials=findings)
 
