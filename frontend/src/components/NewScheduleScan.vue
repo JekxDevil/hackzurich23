@@ -64,7 +64,7 @@ export default {
     async createJob() {
       if (!this.validForm) return;
       this.loading = true;
-      await window.jobs?.create(this.form);
+      await window.jobs?.create({ name: this.form.name, cron: this.form.cron });
       // clear form
       this.loading = false;
       this.form = {

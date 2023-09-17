@@ -14,7 +14,7 @@
       class="mt-6"
     >
       <template v-slot:item.actions="{ item }">
-        <v-btn icon @click="deleteJob(item)" color="red" variant="text">
+        <v-btn icon @click="deleteJob(item.index)" color="red" variant="text">
           <v-icon>mdi-delete</v-icon>
         </v-btn>
       </template>

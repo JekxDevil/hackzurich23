@@ -11,13 +11,13 @@ export default {
     directory: {
       type: String,
       required: false,
-      default: "/",
+      default: null,
     },
   },
   methods: {
     async startScan() {
-
-      await window.scan.start(this.directory);
+      const res = await window.scan.start(this.directory);
+      console.log(res);
     },
   },
 };

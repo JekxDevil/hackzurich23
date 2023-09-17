@@ -4,6 +4,7 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('node:path');
 require("./services.js");
+const {restoreCronJobs} = require("./services");
 
 const createWindow = () => {
   // Create the browser window.
@@ -27,6 +28,8 @@ const createWindow = () => {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
+
+  restoreCronJobs();
 
   app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
