@@ -192,6 +192,11 @@ class RuleBase(object):
         if len(findings) == 0:
             return None
 
+        # SENSITIVE DATA FOUND
+        # invoke ML to determine if it is a false positive or not
+        # state the confidence level (no, human review required, yes)
+        print("SENSITIVE DATA FOUND")
+
         return dict(credentials=findings)
 
     @classmethod
@@ -281,6 +286,7 @@ class RuleBase(object):
         return ent
 
     def run(self, text: str, verbose: bool = False) -> Optional[list]:
+        ''' detect rule pattern in text by comparing keywords and regex '''
         # Pré filter
         if self._keywords is None or len(self._keywords) == 0:
             if verbose:
