@@ -1,8 +1,10 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="d-flex flex-column">
       <NavBar />
-      <router-view />
+      <v-container
+        ><router-view class="d-flex flex-column justify-center align-center"
+      /></v-container>
     </v-main>
   </v-app>
 </template>

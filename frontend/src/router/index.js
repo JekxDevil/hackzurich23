@@ -23,9 +23,11 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/CustomScan.vue"),
   },
   {
-    path: "/schedule-scan",
-
-  }
+    path: "/schedule",
+    name: "schedule",
+    component: () =>
+      import(/* webpackChunkName: "schedule" */ "../views/ScheduleScan.vue"),
+  },
 ];
 
 const router = createRouter({

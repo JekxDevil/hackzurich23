@@ -7,14 +7,17 @@ import "vuetify/styles";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import { createVuetify } from "vuetify";
-import { aliases, mdi } from 'vuetify/iconsets/mdi'
-
+import { aliases, mdi } from "vuetify/iconsets/mdi";
+import { VDataTable } from "vuetify/labs/VDataTable";
 
 const vuetify = createVuetify({
-  components,
+  components: {
+    ...components,
+    VDataTable,
+  },
   directives,
   icons: {
-    defaultSet: 'mdi',
+    defaultSet: "mdi",
     aliases,
     sets: {
       mdi,
