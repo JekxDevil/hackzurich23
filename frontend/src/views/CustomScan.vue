@@ -11,19 +11,17 @@
         <h1 class="my-8">One-gO</h1>
         <p class="">Please specify the Directory you would like to scan</p>
         <div class="d-flex w-100 justify-center my-6">
-          <v-col cols="12" sm="6" md="4">
-            <v-form v-model="validForm" @submit.prevent="submit">
-              <v-text-field
-                v-model="dir"
-                label="Directory"
-                variant="outlined"
-                :rules="[validateDirectory]"
-              ></v-text-field>
-              <div class="d-flex flex-column align-center">
-                <ScanButton />
-              </div>
-            </v-form>
-          </v-col>
+          <v-form v-model="validForm" @submit.prevent="submit" class="w-100">
+            <v-text-field
+              v-model="dir"
+              label="Directory"
+              variant="outlined"
+              :rules="[validateDirectory]"
+            ></v-text-field>
+            <div class="d-flex flex-column align-center">
+              <ScanButton />
+            </div>
+          </v-form>
         </div>
       </div>
     </div>
